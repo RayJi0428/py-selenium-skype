@@ -15,7 +15,7 @@ url = os.environ['SK_URL']
 
 # 定義發送訊息
 today = date.today()
-msg = "(sun) [跨部門新增{p_date}]({p_url}) (sun)".format(
+msg = "(sun) [記得寫週報{p_date}]({p_url}) (sun)".format(
     p_date=today.strftime("%m%d"), p_url=url)
 # 要先安裝ChromeDriver才能使用
 # https://chromedriver.chromium.org/downloads
