@@ -23,7 +23,7 @@ def findElementForever(myBy, myValue):
 cwd_dir = os.path.dirname(sys.argv[0])
 os.chdir(cwd_dir)
 
-params = []
+params = [0,0,0,0,0]
 if len(sys.argv) > 1:
     params = sys.argv[1].split(',')
 else:
@@ -46,7 +46,7 @@ msg = "{p_url}\n工作週報{p_date}".format(
 
 # 要先安裝ChromeDriver才能使用
 # https://chromedriver.chromium.org/downloads
-s = Service('chromedriver_101.exe')
+s = Service('chromedriver_105.exe')
 browser = webdriver.Chrome(service=s)
 browser.set_window_size(200, 500)
 browser.get('https://web.skype.com/')
