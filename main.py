@@ -38,7 +38,7 @@ password = params[1]
 target = params[2]
 msg = params[3]
 
-url = os.environ['SK_URL']
+url = 'https://docs.google.com/spreadsheets/d/1Fvax-aoEwMLMImzpaTWqP3kTXPOk0VTxe9aPJgw197g/edit#gid=0'
 url2 = 'https://docs.google.com/spreadsheets/d/16_dTXf8MkyzgMFEjBsQvKrG7GHJPi7lZuH5L3HsroO0/edit#gid=1841537151'
 # 定義發送訊息
 today = date.today()
@@ -47,7 +47,7 @@ today = date.today()
 msg1 = f'[{today.strftime("%m/%d")}工作週報]({url})'
 msg2 = f'[{today.strftime("%m/%d")}印翻進度]({url2})'
 msg = f'{msg1}\n{msg2}'
-s = Service('chromedriver_107.exe')
+s = Service('chromedriver_109.exe')
 browser = webdriver.Chrome(service=s)
 browser.set_window_size(200, 500)
 browser.get('https://web.skype.com/')
