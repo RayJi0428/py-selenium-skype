@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from time import sleep
-from datetime import date
+from datetime import date, timedelta
 import os
 import sys
 
@@ -38,15 +38,12 @@ password = params[1]
 target = params[2]
 msg = params[3]
 
-url = 'https://docs.google.com/spreadsheets/d/1Fvax-aoEwMLMImzpaTWqP3kTXPOk0VTxe9aPJgw197g/edit#gid=0'
-url2 = 'https://docs.google.com/spreadsheets/d/16_dTXf8MkyzgMFEjBsQvKrG7GHJPi7lZuH5L3HsroO0/edit#gid=1841537151'
+url = 'https://docs.google.com/spreadsheets/d/1zvqC3UeDDrfO-g52PGG-MxbTwK9KwDQ6xDhkI6XkB0o/edit#gid=828109937'
 # 定義發送訊息
-today = date.today()
+meet_date = date.today() + timedelta(days=-1)
 # 要先安裝ChromeDriver才能使用
 # https://chromedriver.chromium.org/downloads
-msg1 = f'[{today.strftime("%m/%d")}工作週報]({url})'
-msg2 = f'[{today.strftime("%m/%d")}印翻進度]({url2})'
-msg = f'{msg1}\n{msg2}'
+msg = f'[{meet_date.strftime("%m/%d")}會議記錄請確認(明哥區塊、本組區塊以及紅字)，預計下班前提交]({url})'
 s = Service('chromedriver_111.exe')
 browser = webdriver.Chrome(service=s)
 browser.set_window_size(200, 500)
