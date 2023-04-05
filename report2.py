@@ -43,7 +43,7 @@ url = 'https://docs.google.com/spreadsheets/d/1zvqC3UeDDrfO-g52PGG-MxbTwK9KwDQ6x
 meet_date = date.today() + timedelta(days=-1)
 # 要先安裝ChromeDriver才能使用
 # https://chromedriver.chromium.org/downloads
-msg = f'[{meet_date.strftime("%m/%d")}會議記錄請確認(明哥區塊、本組區塊以及紅字)，預計下班前提交]({url})'
+msg = f'{meet_date.strftime("%m/%d")}會議記錄請查閱\n{url}'
 s = Service('chromedriver.exe')
 browser = webdriver.Chrome(service=s)
 browser.set_window_size(200, 500)

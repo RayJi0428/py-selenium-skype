@@ -47,7 +47,7 @@ today = date.today()
 msg1 = f'[{today.strftime("%m/%d")}工作週報]({url})'
 msg2 = f'[{today.strftime("%m/%d")}印翻進度]({url2})'
 msg = f'{msg1}\n{msg2}'
-s = Service('chromedriver_111.exe')
+s = Service('chromedriver.exe')
 browser = webdriver.Chrome(service=s)
 browser.set_window_size(200, 500)
 browser.get('https://web.skype.com/')

@@ -44,7 +44,7 @@ meet_date = date.today() + timedelta(days=1)
 # 要先安裝ChromeDriver才能使用
 # https://chromedriver.chromium.org/downloads
 msg = f'[{meet_date.strftime("%m/%d")}週會議題請填]({url})'
-s = Service('chromedriver_111.exe')
+s = Service('chromedriver.exe')
 browser = webdriver.Chrome(service=s)
 browser.set_window_size(200, 500)
 browser.get('https://web.skype.com/')
