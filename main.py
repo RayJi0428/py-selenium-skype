@@ -13,8 +13,10 @@ def findElementForever(myBy, myValue):
         try:
             elem = browser.find_element(
                 by=myBy, value=myValue)  # //標籤@屬性='值'
-        except:
-            print("找不到元素...")
+            if elem.is_displayed() == False:
+                raise Exception('尚未displayed')
+        except Exception as arg:
+            print(f"找不到元素...{arg}")
             sleep(1)
     return elem
 
@@ -39,14 +41,12 @@ target = params[2]
 msg = params[3]
 
 url = 'https://docs.google.com/spreadsheets/d/1Fvax-aoEwMLMImzpaTWqP3kTXPOk0VTxe9aPJgw197g/edit#gid=0'
-url2 = 'https://docs.google.com/spreadsheets/d/16_dTXf8MkyzgMFEjBsQvKrG7GHJPi7lZuH5L3HsroO0/edit#gid=1841537151'
+
 # 定義發送訊息
 today = date.today()
 # 要先安裝ChromeDriver才能使用
 # https://chromedriver.chromium.org/downloads
-msg1 = f'[{today.strftime("%m/%d")}工作週報]({url})'
-msg2 = f'[{today.strftime("%m/%d")}印翻進度]({url2})'
-msg = f'{msg1}\n{msg2}'
+msg = f'[{today.strftime("%m/%d")}工作週報]({url})'
 s = Service('chromedriver.exe')
 browser = webdriver.Chrome(service=s)
 browser.set_window_size(200, 500)
