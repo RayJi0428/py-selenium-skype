@@ -31,7 +31,7 @@ def createBrowser():
     global browser
     s = Service('chromedriver.exe')
     browser = webdriver.Chrome(service=s)
-    browser.set_window_size(200, 500)
+    browser.set_window_size(200, 1000)
     browser.get('https://web.skype.com/')
     return browser
 
@@ -53,6 +53,6 @@ def login():
     sleep(1)
 
     # 確認記憶帳號
-    nextElem = findElementForever(By.ID, 'idSIButton9')
+    nextElem = findElementForever(By.ID, 'aaacceptButton')
     nextElem.click()
     sleep(1)
