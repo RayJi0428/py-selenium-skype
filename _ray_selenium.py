@@ -53,6 +53,6 @@ def login():
     sleep(1)
 
     # 確認記憶帳號
-    nextElem = findElementForever(By.ID, 'aaacceptButton')
+    nextElem = findElementForever(By.ID, 'acceptButton')
     nextElem.click()
     sleep(1)
