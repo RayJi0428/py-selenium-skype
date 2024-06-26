@@ -13,7 +13,7 @@ os.chdir(cwd_dir)
 
 url = 'https://docs.google.com/spreadsheets/d/1zvqC3UeDDrfO-g52PGG-MxbTwK9KwDQ6xDhkI6XkB0o/edit#gid=828109937'
 meet_date = date.today() + timedelta(days=-1)
-msg = f'[{meet_date.strftime("%m/%d")}會議記錄請確認(明哥區塊、本組區塊以及紅字)，預計下班前提交]({url})'
+msg = f'[{meet_date.strftime("%m/%d")}會議記錄請確認，預計下班前提交]({url})'
 target = '幹話討論'
 
 browser = _ray_selenium.createBrowser()
